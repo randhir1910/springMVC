@@ -13,7 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class Student
 {
-     @RequestMapping("/")
+    @RequestMapping(value = "/hello")
+    public ModelAndView Hello()
+    {
+        ModelAndView view=new ModelAndView("index");
+        view.addObject("msg","hello from Spring");
+        return view;
+    }
+
+    @RequestMapping("/")
      @ResponseBody
    String index()
    {
