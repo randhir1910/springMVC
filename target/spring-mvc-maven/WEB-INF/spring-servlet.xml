@@ -11,6 +11,6 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
         <property name="prefix" value="/WEB-INF/jsp/" />
         <property name="suffix" value=".jsp" />
     </bean>
-    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
-    <bean class="com.randhir.controller.Student"/>
+  <context:annotation-config></context:annotation-config>
+   <context:component-scan base-package="com.randhir.controller"></context:component-scan>
 </beans>
