@@ -1,6 +1,8 @@
 package com.randhir.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,18 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class Student
 {
-    @RequestMapping(value = "/hello")
-    public ModelAndView Hello()
-    {
-        ModelAndView view=new ModelAndView("index");
-        view.addObject("msg","hello from Spring");
-        return view;
-    }
-
-    @RequestMapping("/")
+    @RequestMapping(value ="hello/{firstName}/{lastName}")
      @ResponseBody
-   String index()
+   String index(@PathVariable("firstName") String firstName,@PathVariable("lastName") String lastName)
    {
-       return "Hello World";
+       return firstName+lastName;
    }
 }
